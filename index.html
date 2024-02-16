@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alpha Clash Pro</title>
+    <!-- Daisy Ui and Tailwind -->
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.1/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- style css -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body
+    class="min-h-screen bg-[#010313] bg-[url(img/background.png)] bg-no-repeat bg-center"
+  >
+    <main>
+      <!-- Home Screen -->
+      <section id="home-screen" class=" text-white flex flex-col justify-center h-screen">
+        <div class="flex flex-col items-center gap-y-8">
+          <h1 class="text-9xl font-anton-regular">ALPHABET CLASH</h1>
+          <p class="font-poppins-medium text-xl">
+            Unleash Your Keyboard Kung Fu : Press “Enter” to Play
+          </p>
+          <button onclick="play()"
+            class="font-poppins-semibold btn btn-accent bg-white text-black"
+          >
+            Play Now
+          </button>
+        </div>
+      </section>
+
+      <!-- Play Ground -->
+    <div id="play-ground" class=" flex flex-col items-center gap-20 pt-16 hidden">
+      <section class="playGround">
+        <!-- Display Banner -->
+        <div
+          class="artboard artboard-horizontal phone-6 border-[20px] rounded-xl border-[#010313cc] bg-[#ffffffb3] flex justify-center"
+        >
+        <div class="">
+            <p class="bg-[#2F2941] px-6 py-1 rounded-b-lg text-white pb-2">Don't watch keyboard  while playing...</p>
+            <div class="flex justify-center items-center h-full">
+                <p id="current-alphabet" class="text-black text-8xl font-semibold uppercase">Y</p>
+            </div>
+        </div>
+        </div>
+        <!-- Display Banner end -->
+
+        <!-- keyboard start -->
+        <div class="text-white pt-20">
+          <div class="flex justify-center gap-1 my-1 w-full space-x-1">
+            <kbd id="q" class="kbd text-black bg-white font-inter-uniquifier">q</kbd>
+            <kbd id="w" class="kbd text-black bg-white font font-inter-uniquifier">w</kbd>
+            <kbd id="e" class="kbd text-black bg-white font-inter-uniquifier">e</kbd>
+            <kbd id="r" class="kbd text-black bg-white font-inter-uniquifier">r</kbd>
+            <kbd id="t" class="kbd text-black bg-white font-inter-uniquifier">t</kbd>
+            <kbd id="y" class="kbd text-black bg-white font-inter-uniquifier">y</kbd>
+            <kbd id="u" class="kbd text-black bg-white font-inter-uniquifier">u</kbd>
+            <kbd id="i" class="kbd text-black bg-white font-inter-uniquifier">i</kbd>
+            <kbd id="o" class="kbd text-black bg-white font-inter-uniquifier">o</kbd>
+            <kbd id="p" class="kbd text-black bg-white font-inter-uniquifier">p</kbd>
+          </div>
+          <div class="flex justify-center gap-1 my-1 w-full space-x-1">
+            <kbd id="a" class="kbd text-black bg-white font-inter-uniquifier">a</kbd>
+            <kbd id="s" class="kbd text-black bg-white font-inter-uniquifier">s</kbd>
+            <kbd id="d" class="kbd text-black bg-white font-inter-uniquifier">d</kbd>
+            <kbd id="f" class="kbd text-black bg-white font-inter-uniquifier">f</kbd>
+            <kbd id="g" class="kbd text-black bg-white font-inter-uniquifier">g</kbd>
+            <kbd id="h" class="kbd text-black bg-white font-inter-uniquifier">h</kbd>
+            <kbd id="j" class="kbd text-black bg-white font-inter-uniquifier">j</kbd>
+            <kbd id="k" class="kbd text-black bg-white font-inter-uniquifier">k</kbd>
+            <kbd id="l" class="kbd text-black bg-white font-inter-uniquifier">l</kbd>
+          </div>
+          <div class="flex justify-center gap-1 my-1 w-full space-x-1">
+            <kbd id="z" class="kbd text-black bg-white font-inter-uniquifier">z</kbd>
+            <kbd id="x" class="kbd text-black bg-white font-inter-uniquifier">x</kbd>
+            <kbd id="c" class="kbd text-black bg-white font-inter-uniquifier">c</kbd>
+            <kbd id="v" class="kbd text-black bg-white font-inter-uniquifier">v</kbd>
+            <kbd id="b" class="kbd text-black bg-white font-inter-uniquifier">b</kbd>
+            <kbd id="n" class="kbd text-black bg-white font-inter-uniquifier">n</kbd>
+            <kbd id="m" class="kbd text-black bg-white font-inter-uniquifier">m</kbd>
+            <kbd id="" class="kbd text-black bg-white font-inter-uniquifier">/</kbd>
+          </div>
+        </div>
+        <!-- keyboard end -->
+
+        <!-- Button section -->
+        <div class="pt-32 flex justify-between ">
+          <button
+            class="btn btn-secondary rounded-[35px] text-white bg-[#894189]"
+          > 
+            Life <img src="img/love.svg" alt=""> <span id="current-life" class="text-white">5</span>
+          </button>
+
+          <button class="btn btn-secondary rounded-[35px] text-white bg-[#360490]">Score <img src="img/dolar.svg" alt=""> <span id="current-score"  class="text-white">0</span></button>
+        </div>
+        <!-- Button section end -->
+    </div>
+      </section>
+
+      <!-- Score -->
+      <section id="final-score" class="score hidden">
+        <div class="flex items-center justify-center flex-col space-y-5 bg-[#FFFFF33] rounded-sm min-h-screen">
+            <div class="bg-blue-700 text-center p-5 rounded-md">
+              <h1 class="text-7xl text-white"> <span class="font-extrabold"> Score: </span><span id="game-score" class="font-semibold">14</span></h1>
+            <button onclick="play()" class="btn btn-active btn-secondary bg-blue-500 p-2 mt-3">Play Again</button>
+            <p class="text-white mt-3">Practice will make you Pro</p>
+            </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="utility.js"></script>
+    <script src="alpa.js"></script>
+    
+    
+  </body>
+</html>
